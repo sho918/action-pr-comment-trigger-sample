@@ -1,0 +1,10 @@
+name: Main
+
+on: issue_comment
+
+jobs:
+  main:
+    if: github.event.issue.pull_request && github.event.comment.body == '/trigger'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello
