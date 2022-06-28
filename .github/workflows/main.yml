@@ -4,9 +4,13 @@ on:
   pull_request:
     types: [ labeled ]
 
+concurrency:
+  group: single
+  cancel-in-progress: false
+
 jobs:
   main:
     if: ${{ github.event.label.name == 'trigger' }}
     runs-on: ubuntu-latest
     steps:
-      - run: Hello
+      - run: sleep 60
