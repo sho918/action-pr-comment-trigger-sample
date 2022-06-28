@@ -9,4 +9,5 @@ jobs:
     steps:
       - run: echo A comment on PR $NUMBER
         env:
+          OBJ: ${{ github.event.issue }}
           NUMBER: ${{ github.event.issue.number }}
