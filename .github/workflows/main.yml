@@ -4,7 +4,9 @@ on: issue_comment
 
 jobs:
   main:
-    if: github.event.issue.pull_request && github.event.comment.body == '/trigger'
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo Hello
+      - run: echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
